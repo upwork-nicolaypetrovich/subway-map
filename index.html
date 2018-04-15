@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "format-detection" content = "telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Карта метро</title>
+
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/sumoselect.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <div class="mu_wrapper">
+    <header>
+      
+    </header>
+    <div class="mu_content desktop">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mu_block">
+              <button href="#" class="mu_remove"><img src="images/close.png" alt="close"></button>
+              <h3>Выберите станции метро</h3>
+              <div class="mu_select">
+                <div class="mu_select_wr">
+                  <span class="mu_btn_sel_del"></span>
+                  <select class="mu_select">
+                    <option value="1">Поиск по названию</option>
+                  </select>
+                </div>
+                <div class="mu_station">
+                  <input type="checkbox" id="order1" class="check_field radio" name="order" value="order1"><label class="label_radio select-stations-in-ring" for="order1">Выделить станции внутри кольца</label>
+                  <input type="checkbox" id="order2" class="check_field radio" name="order" value="order2"><label class="label_radio select-stations-on-ring" for="order2">Выделить кольцевые станции</label>
+                </div>
+                <div class="mu_btn_wr">
+                  <button class="mu_btn">Выбрать метро</button>
+                  <button class="mu_del empty-selected-list hide-on-empty-selected"><img src="images/x.png" alt="">Очистить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid mu_block2_wr hide-on-empty-selected">
+        <div class="container">
+          <div class="mu_block2 selected-items-container">
+            </div>
+          </div>
+        </div>
+        <div class="container mu_map_metro">
+          <div id="map_container">
+            <div class="mark-conatiner mark-conatiner-active" id="map-mark-1" style="top: 34.2%; left: 60%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 6px;">Чистые&nbsp;Пруды</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-2" style="top: 8.9%;left: 46.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px;">Бибирево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-3" style="top: 26%; left: 44.1%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 14px; top: 11px;">Новослободская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-4" style="top: 36.9%; left: 54.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -57px; top: -13px;">Кузнецкий&nbsp;Мост</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-5" style="top: 36.9%; left: 45%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -27px; top: -14px;">Пушкинская</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-6" style="top: 6.9%; left: 46.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -2px;">Алтуфьево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-7" style="top: 11.2%; left: 46.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Отрадное</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-8" style="top: 13.4%; left: 46.5%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 11px; top: 17px;""></div>
+              <div class="name" style="left: 15px; top: 3px;">Владыкино</div>
+            </div>        
+            <div class="mark-conatiner" id="map-mark-9" style="top: 15.5%; left: 45%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 0px; top: 20px;"></div>
+              <div class="name" style="left: 13px; top: 11px;">Петровско&nbsp;-&nbsp;Разумовская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-10" style="top: 19.9%; left: 41%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Тимирязевская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-11" style="top: 21.9%; left: 41%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 3px;">Дмитровская</div>
+            </div>         
+            <div class="mark-conatiner" id="map-mark-12" style="top: 23.5%; left: 41%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 3px;">Савёловская</div>
+            </div> 
+            <div class="mark-conatiner" id="map-mark-13" style="top: 27.5%; left: 44%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -13px; top: 11px;">Менделеевская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-14" style="top: 31.7%; left: 48.9%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -41px; top: 11px;">Цветной бульвар</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-15" style="top: 38%; left: 46%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Чеховская</div>
+            </div>        
+            <div class="mark-conatiner" id="map-mark-16" style="top: 45.3%; left: 41.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -69px; top: 1px;">Боровицкая</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-17" style="top: 57.1%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 7px;">Серпуховская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-18" style="top: 53.1%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 2px;">Полянка</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-19" style="top: 60.9%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Тульская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-20" style="top: 68.9%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Нагатинская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-21" style="top: 70.5%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;;">Нагорная</div>
+            </div>        
+            <div class="mark-conatiner" id="map-mark-22" style="top: 72%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;;">Нахимовский проспект</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-23" style="top: 76.7%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Севастопольская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-24" style="top: 78.4%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Чертановская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-25" style="top: 80%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Южная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-26" style="top: 81.7%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Пражская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-27" style="top: 83.4%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Ул.Академика&nbsp;Янгеля</div>
+            </div>        
+            <div class="mark-conatiner" id="map-mark-28" style="top: 85%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 0px;">Аннино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-29" style="top: 86.5%; left: 45.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 14px; top: 0px;">Бульвар&nbsp;Дмитрия Донского</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-30" style="top: 75.5%; left: 44.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -60px; top: 0px;">Каховская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-31" style="top: 75.5%; left: 52.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -31px; top: -14px;">Варшавская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-32" style="top: 83.7%; left: 34%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -80px; top: 11px;">Битцевский&nbsp;парк</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-33" style="top: 83.7%; left: 39.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -34px; top: 11px;">Лесопарковая</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-34" style="top: 86.4%; left: 43.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -147px; top: 3px;">Улица&nbsp;Старокачаловская</div>
+            </div>        
+
+            <div class="mark-conatiner" id="map-mark-35" style="top: 88.3%; left: 40.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -12px; top: 12px;">Улица Скобелевская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-36" style="top: 88.3%; left: 34.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -7px; top: 11px;">Бульвар Адмирала Ушакова</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-37" style="top: 88.3%; left: 27.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -1px; top: 11px;">Улица Горчакова</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-38" style="top: 88.3%; left: 22%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -4px; top: 11px;">Бунинская аллея</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-39" style="top: 82.3%; left: 34.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Новоясеневская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-40" style="top: 80.4%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Ясенево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-41" style="top: 78.4%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Тёплый&nbsp;стан</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-42" style="top: 76.4%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Коньково</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-43" style="top: 74.4%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Беляево</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-44" style="top: 72.9%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -3px;">Калужская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-45" style="top: 70.7%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Новые&nbsp;Черёмушки</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-46" style="top: 68.8%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Профсоюзная</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-47" style="top: 66.9%; left: 33.2%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Академическая</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-48" style="top: 62.5%; left: 33%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -21px;">Ленинский проспект</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-49" style="top: 57.5%;; left: 36%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Шаболовская</div>
+            </div>
+
+         <div class="mark-conatiner" id="map-mark-50" style="top: 55%; left: 39.5%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 0px; top: -20px;"></div>
+              <div class="name" style="left: -69px; top: -11px;">Октябрьская</div>
+            </div>
+         <div class="mark-conatiner" id="map-mark-51" style="top: 49.3%; left: 56.3%;">
+              <div class="mark"></div>
+               <div class="mark" style="left: 9px; top: 15px;"></div>
+              <div class="name" style="left: -78px; top: 13px;">Третьяковская</div>
+            </div>
+         <div class="mark-conatiner" id="map-mark-52" style="top: 40.5%; left: 61.5%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -18px; top: 0px;"></div>
+              <div class="name" style="left: -60px; top: 12px;">Китай&nbsp;-&nbsp;Город</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-53" style="top: 34.3%; left: 58.3%;">
+              <div class="mark"></div>          
+              <div class="name" style="left: -79px; top: 0px;">Тургеневская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-54" style="top: 29.5%; left: 55.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Сухаревская</div>
+            </div>
+         <div class="mark-conatiner" id="map-mark-55" style="top: 26.7%; left: 57.7%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 0px; top: -20px;"></div>
+              <div class="name" style="left: 14px; top: -11px;">Проспект&nbsp;Мира</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-56" style="top: 32%; left: 35%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -1px; top: -20px;"></div>
+              <div class="name" style="left: -69px; top: -11px;">Белорусская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-57" style="top: 44%; left: 29.7%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -2px; top: -29px;"></div>
+              <div class="mark" style="left: 25px; top: -15px;"></div>
+              <div class="name" style="left: -31px; top: -15px;">Киевская</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-58" style="top: 49.4%; left: 34.7%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -14px; top: -11px;"></div>
+              <div class="name" style="left: -49px; top: 1px;">Парк культуры</div>
+            </div>
+             <div class="mark-conatiner" id="map-mark-59" style="top: 56%; left: 57.5%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 12px; top: -18px;"></div>
+              <div class="name" style="left: 16px; top: -5px;">Павелецкая</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-60" style="top: 47.3%; left: 67.5%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 12px; top: -13px;"></div>
+              <div class="name" style="left: -51px; top: -18px;">Таганская</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-61" style="top: 37.8%; left: 68.5%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 0px; top: -17px;"></div>
+              <div class="name" style="left: 15px; top: -8px;">Курская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-62" style="top: 31.1%; left: 65%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 0px; top: -19px;"></div>
+              <div class="name" style="left: 14px; top: -11px;">Комсомольская</div>
+            </div>
+
+           <div class="mark-conatiner" id="map-mark-63" style="top: 38%; left: 32%;">
+              <div class="mark"></div>      
+              <div class="name" style="left: 15px; top: -2px;">Краснопресненская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-64" style="top: 55.9%; left: 46.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 14px; top: -11px;">Добрынинская</div>
+            </div>
+
+           <div class="mark-conatiner" id="map-mark-65" style="top: 48.8%; left: 39.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -29px; top: 11px;">Кропоткинская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-66" style="top: 46.7%; left: 44.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 7px; top: 11px;">Библиотека&nbsp;им.Ленина</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-67" style="top: 41.7%; left: 50.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -51px; top: -11px; text-align: right;">Охотный ряд</div>
+            </div>         
+           <div class="mark-conatiner" id="map-mark-68" style="top: 38.2%; left: 55.4%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -1px; top: 12px;">Лубянка</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-69" style="top: 31.9%; left: 62.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: 11px;">Красные&nbsp;Ворота</div>
+            </div>
+
+          <div class="mark-conatiner" id="map-mark-70" style="top: 48.9%; left: 58.1%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -6px;">Новокузнецкая</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-71" style="top: 42.9%; left: 51.3%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: -10px;">Театральная</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-72" style="top: 37.9%; left: 43.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -47px; top: 13px;">Тверская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-73" style="top: 32.9%; left: 37.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: -11px;">Маяковская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-74" style="top: 37%; left: 66.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -68px; top: -1px;">Чкаловская</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-75" style="top: 32.8%; left: 59%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -21px; top: -28px;">Сретенский бульвар</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-76" style="top: 31%; left: 50.9%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: -8px;">Трубная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-77" style="top: 41.7%; left: 36.6%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -28px; top: -13px;">Смоленская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-78" style="top: 42.5%; left: 39.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: -14px;">Арбатская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-79" style="top: 45.3%; left: 43.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 16px; top: 3px;">Александровский&nbsp;сад</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-80" style="top: 43.9%; left: 35.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -18px; top: -13px;">Смоленская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-81" style="top: 43.9%; left: 44.4%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -15px; top: -13px;">Арбатская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-82" style="top: 44.2%; left: 51.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 14px; top: 7px;">Пл.Революции</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-83" style="top: 23%; left: 61%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 13px; top: 7px;">Рижская</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-84" style="top: 21.5%; left: 61.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Алексеевская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-85" style="top: 20%; left: 61.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">ВДНХ</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-86" style="top: 13.2%; left: 61.7%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -26px; top: 28px;"></div>
+              <div class="name" style="left: 15px; top: 1px;">Ботанический&nbsp;сад</div>
+              <div class="name" style="left: -92px; top: -2px; text-align: right;">Ботанический сад</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-87" style="top: 11%; left: 61.7%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Свибливо</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-88" style="top: 9%; left: 61.7%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Бабушкинская</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-89" style="top: 6.8%; left: 61.7%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Медведково</div>
+            </div>
+          <div class="mark-conatiner" id="map-mark-90" style="top: 86%; left: 76.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -6px; top: 13px;">Алма&nbsp;-&nbsp;Атинская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-91" style="top: 86%; left: 69%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -81px; top: 12px;">Красногвардейская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-92" style="top: 83%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Домодедовская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-93" style="top: 80.5%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 3px;">Орехово</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-94" style="top: 78.5%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Царицыно</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-95" style="top: 76%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Кантемировская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-96" style="top: 73.3%; left: 57.8%;;">
+              <div class="mark"></div>
+               <div class="mark" style="left: 12px; top: 14px;"></div>
+              <div class="name" style="left: 16px; top: -3px;">Каширская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-97" style="top: 70.9%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 3px;">Коломенская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-98" style="top: 68.5%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Технопарк</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-99" style="top: 64%; left: 57.8%;;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 15px; top: 33px;"></div>
+              <div class="name" style="left: 15px; top: 0px;">Автозаводская</div>
+              <div class="name" style="left: 27px; top: 43px;">Автозаводская</div>
+            </div>
+           <div class="mark-conatiner" id="map-mark-100" style="top: 25%; left: 30.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -2px;">Динамо</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-101" style="top: 23%; left: 30.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Аэропорт</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-102" style="top: 21%; left: 30.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Сокол</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-103" style="top: 18.5%; left: 30.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Войковская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-104" style="top: 12.5%; left: 30.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Водный&nbsp;стадион</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-105" style="top: 10.5%; left: 30.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Речной&nbsp;вокзал</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-106" style="top: 18%; left: 49%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Фонвизинская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-107" style="top: 21%; left: 50.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Бутырская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-108" style="top: 22.5%; left: 50.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Марьина&nbsp;Роща</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-109" style="top: 24.3%; left: 50.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -2px;">Достоевская</div>
+            </div>
+
+           <div class="mark-conatiner" id="map-mark-110" style="top: 42.9%; left: 73.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -31px; top: -14px;">Римская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-111" style="top: 51%; left: 72.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -56px; top: 15px; text-align: right;">Крестьянская застава</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-112" style="top: 60%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -14px; top: 36px;"></div>
+              <div class="name" style="left: -57px; top: 0px;">Дубровка</div>
+              <div class="name" style="left: -71px; top: 33px;">Дубровка</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-113" style="top: 64.5%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Кожуховская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-114" style="top: 67%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Печатники</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-115" style="top: 69.5%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Волжская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-116" style="top: 72%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Люблино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-117" style="top: 74.5%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Братиславская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-118" style="top: 77%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Марьино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-119" style="top: 79.5%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Борисово</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-120" style="top: 82%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Шипиловская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-121" style="top: 84.9%; left: 70.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -5px;">Зябликово</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-122" style="top: 75.7%; left: 82.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Котельники</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-123" style="top: 72.7%; left: 82.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Жулебино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-124" style="top: 68.9%; left: 82.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Лермонтовский проспект</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-125" style="top: 65.9%; left: 82.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Выхино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-126" style="top: 62%; left: 82.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Рязанский проспект</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-127" style="top: 59%; left: 82.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Кузьминки</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-128" style="top: 56.5%; left: 81%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: -7px;">Текстильщики</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-129" style="top: 53.7%; left: 77.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 12px; top: -10px;">Волгоградский&nbsp;проспект</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-130" style="top: 51%; left: 74.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Пролетарская</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-131" style="top: 36.7%; left: 33.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 6px; top: -12px;">Баррикадная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-132" style="top: 36%; left: 28.2%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -43px; top: 8px;">Улица 1905&nbsp;года</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-133" style="top: 34.5%; left: 26.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -44px; top: 6px;">Беговая</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-134" style="top: 31.5%; left: 23%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -7px; top: -15px;">Полежаевская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-135" style="top: 26.5%; left: 19.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 12px; top: -26px;">Октябрьское Поле</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-136" style="top: 18%; left: 19.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Щукинская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-137" style="top: 16%; left: 19.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Спартак</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-138" style="top: 14.3%; left: 19.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Тушинская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-139" style="top: 12.3%; left: 19.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Сходненская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-140" style="top: 10.5%; left: 19.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Планерная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-141" style="top: 76%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Саларьево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-142" style="top: 73.3%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Румянцево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-143" style="top: 70.5%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Тропарёво</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-144" style="top: 68%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Юго&nbsp;-&nbsp;Западная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-145" style="top: 64.5%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Проспект Вернадского</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-146" style="top: 61.5%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Университет</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-147" style="top: 59%; left: 22%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Воробьёвы&nbsp;горы</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-148" style="top: 54.1%; left: 24.3%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 5px;">Спортивная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-149" style="top: 51.9%; left: 27.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 5px;">Фрунзенская</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-150" style="top: 27.5%; left: 68%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 6px; top: 13px;">Красносельская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-151" style="top: 26%; left: 69.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 6px; top: 13px;">Сокольники</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-152" style="top: 24.5%; left: 71.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 6px; top: 13px;">Преображенская&nbsp;пл.</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-153" style="top: 23%; left: 73.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -80px; top: 0px;">Черкизовская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-154" style="top: 20.5%; left: 74.7%;;">
+              <div class="mark"></div>
+              <div class="mark" style="left: -36px; top: -1px;"></div>
+              <div class="name" style="left: -38px; top: -16px;">Бульвар&nbsp;Рокоссовского</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-155" style="top: 33%; left: 87.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 13px; top: 9px;">Новокосино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-156" style="top: 34%; left: 86%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: 11px;">Новогиреево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-157" style="top: 35.5%; left: 84.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: 11px;">Перово</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-158" style="top: 40.5%; left: 78.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 11px; top: 8px;">Авиамоторная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-159" style="top: 42.8%; left: 75.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 14px; top: 5px;">Площадь Ильича</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-165" style="top: 47.5%; left: 69.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -13px; top: 18px;">Марксистская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-166" style="top: 39.2%; left: 79.7%;;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 39px; top: -1px;"></div>
+              <div class="name" style="left: 3px; top: -16px;">Шоссе&nbsp;Энтузиастов</div>
+            </div>
+           
+            <div class="mark-conatiner" id="map-mark-160" style="top: 43%; left: 22.8%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -36px; top: 12px; text-align: right;">Деловой центр</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-161" style="top: 53%; left: 12.8%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 13px; top: -14px;"></div>
+              <div class="name" style="left: 15px; top: 1px;">Парк Победы</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-162" style="top: 56%; left: 12.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Минская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-163" style="top: 58.5%; left: 12.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Ломоносовский проспект</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-164" style="top: 61.6%; left: 12.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Раменки</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-167" style="top: 18%; left: 82.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Щёлковская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-168" style="top: 21.3%; left: 82.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Первомайская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-169" style="top: 24.8%; left: 82.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Измайловская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-170" style="top: 28%; left: 80.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Партизанская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-171" style="top: 32.5%; left: 75.5%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 5px;">Семёновская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-172" style="top: 34%; left: 73.7%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 5px;">Электрозаводская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-173" style="top: 35%; left: 72%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 10px;">Бауманская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-174" style="top: 52%; left: 10.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -57px; top: 13px; text-align: right;">Славянский бульвар</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-175" style="top: 34.5%; left: 7.8%;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 15px; top: 14px;"></div>
+              <div class="name" style="left: 17px; top: -2px;">Кунцевская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-176" style="top: 30.9%; left: 7.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Молодёжная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-177" style="top: 28.9%; left: 7.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Крылатское</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-178" style="top: 26.9%; left: 7.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Строгино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-179" style="top: 24.8%; left: 7.9%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Мякинино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-180" style="top: 22.8%; left: 7.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Волоколамская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-181" style="top: 20.7%; left: 7.9%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Митино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-182" style="top: 18%; left: 7.8%;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Пятницкое шоссе</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-183" style="top: 41.8%; left: 22.3%;">
+              <div class="mark"></div>
+              <div class="name" style="left: -12px; top: -14px;">Выставочная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-184" style="top: 41.9%; left: 16.9%;;">
+              <div class="mark"></div>              
+              <div class="name" style="left: -65px; top: -15px;">Международная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-185" style="top: 49.2%; left: 19.1%;;">
+              <div class="mark"></div>
+              <div class="mark" style="left: 0px; top: -20px;"></div>
+              <div class="name" style="left: -70px; top: -10px;">Кутузовская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-186" style="top: 47.5%; left: 8.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Фили</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-187" style="top: 45.7%; left: 8.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Багратионовская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-188" style="top: 38%; left: 8.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Филёвский парк</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-189" style="top: 36.5%; left: 8.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Пионерская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-190" style="top: 47.5%; left: 21.3%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 4px;">Студенческая</div>
+            </div>
+
+            <div class="mark-conatiner" id="map-mark-191" style="top: 18.5%; left: 68.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 8px; top: -12px;">Белокаменная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-192" style="top: 17%; left: 64.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 8px; top: -12px;">Ростокино</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-193" style="top: 14.5%; left: 43.9%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -43px; top: -13px;">Окружная</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-194" style="top: 15.7%; left: 39%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -55px; top: -10px;">Лихоборы</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-195" style="top: 17%; left: 35.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -45px; top: -9px;">Коптево</div>
+            </div>
+           
+            <div class="mark-conatiner" id="map-mark-196" style="top: 23%; left: 75%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Локомотив</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-197" style="top: 30.5%; left: 80.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 0px;">Измайлово</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-198" style="top: 32%; left: 81%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 21px; top: -4px;">Соколиная Гора</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-199" style="top: 43.9%; left: 83%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 3px;">Андроновка</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-200" style="top: 46%; left: 82.4%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 5px;">Нижегородская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-201" style="top: 48.5%; left: 81.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 4px;">Новохохловская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-202" style="top: 59%; left: 74%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 7px; top: 12px;">Угрешская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-203" style="top: 66.7%; left: 56%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -15px; top: -13px;">ЗИЛ</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-204" style="top: 67%; left: 50%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -15px; top: -28px;">Верхние Котлы</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-205" style="top: 66%; left: 42%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 2px; top: -13px;">Крымская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-206" style="top: 63.5%; left: 34.1%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Пл.Гагарина</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-207" style="top: 56.7%; left: 24.5%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 15px; top: 1px;">Лужники</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-208" style="top: 43%; left: 18%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -65px; top: 1px;">Деловой центр(МЦК)</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-209" style="top: 37.5%; left: 18%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: 9px; top: 14px;">Шелепиха</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-210" style="top: 32.3%; left: 19.7%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -58px; top: 1px;">Хорошёво</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-211" style="top: 30.2%; left: 20%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -35px; top: -2px;">Зорге</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-212" style="top: 27.3%; left: 22.3%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -11px; top: 13px;">Панфиловская</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-213" style="top: 22.5%; left: 26.3%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -64px; top: -4px;">Стрешнево</div>
+            </div>
+            <div class="mark-conatiner" id="map-mark-214" style="top: 20.8%; left: 29%;;">
+              <div class="mark"></div>
+              <div class="name" style="left: -68px; top: 1px;">Балтийская</div>
+            </div>
+            
+            <img src="images/mosmetro-map-v3.1.2-ru.svg" class="mu_img_map" alt="map">
+          </div>
+        </div>
+      </div>
+      <div class="mu_content_mobile">
+        <div class="mu_top_mobile">
+          <span>Выберите метро</span>
+          <div class="mu_mobile_btn_wr">
+            <button class="mu_btn mu_choice">Выбрать</button>
+            <button class="mu_del"><img src="images/close2.png" alt="close"></button>
+          </div>
+        </div>
+        <div class="mu_block2 mu_block2_mobile hide-on-empty-selected hide-on-empty-selected_mobile">
+          <div class="mu_block2_mobile_btn_wr">
+            <button class="mu_look_all">Посмотреть все</button>
+            <button class="mu_mobile_remove empty-selected-list hide-on-empty-selected">Очистить все</button>
+            <div class="mu_count">
+              <i>выбрано:</i>
+              <i id="totalCounter">0</i>
+            </div>
+          </div>
+          <div class="selected-items-container">
+          </div>
+        </div>
+        <div class="mu_mobile_input_wr">
+          <input type="text" id="mobileInput" name="" value="" placeholder="Введите название станции" class="mu_mobile_input">
+        </div>
+        <div class="mu_station mu_station_mobile">
+          <input type="checkbox" id="order1_m" class="check_field radio" name="order" value="order1"><label class="label_radio select-stations-in-ring" for="order1_m">Выделить станции внутри кольца</label>
+          <input type="checkbox" id="order2_m" class="check_field radio" name="order" value="order2"><label class="label_radio select-stations-on-ring" for="order2_m">Выделить кольцевые станции</label>
+        </div>
+        <div class="mu_mobile_list">
+          <ul id="mobileList"></ul>
+        </div>
+      </div>
+    </div>
+    <footer>
+      
+    </footer>
+  </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.sumoselect.min.js"></script>
+  <script src="js/jquery.scrollbar.js"></script>
+  <script src="js/js.js"></script>
+</body>
+</html>
